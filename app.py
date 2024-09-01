@@ -15,7 +15,7 @@ def fetch_news(start_published_date_str, end_published_date_str, number_of_artic
     """Prepare the data payload for the Exo API request"""
     api_key = os.getenv("EXO_KEY")
     endpoint = "https://api.exa.ai/search"
-    query = f"Latest Indian stock market and business news."
+    query = f"Indian stock market and business news."
     data = {
         "startPublishedDate": start_published_date_str,
         "query": query,
