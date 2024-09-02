@@ -109,7 +109,8 @@ def main():
     start_date = st.date_input("Start date")
     end_date = st.date_input("End date")
     num_articles = st.number_input("Number of articles:", min_value=1, max_value=100, value=5)
-
+    start_date_time = datetime.combine(start_date, time(0, 0))
+    end_date_time = datetime.combine(end_date, time(23, 59, 59))
     # Convert the dates to the required format (e.g., "2024-08-25T14:17:54.241Z")
     start_date_str = start_date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     end_date_str = end_date.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
@@ -118,7 +119,10 @@ def main():
         try:
             with st.spinner("Fetching news..."):
                 articles = fetch_news(start_date_str, end_date_str, num_articles)
-                st.success("News fetched successfully!")
+                if articles!=[]:
+                    st.success("News fetched successfully!")
+                else:
+                    st.success("No News Found for the selected date range")
 
                 # Display the news articles
                 for article in articles:
