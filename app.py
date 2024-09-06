@@ -24,7 +24,7 @@ def fetch_news(start_published_date_str, end_published_date_str, number_of_artic
         "numResults": number_of_articles,
         "endPublishedDate": end_published_date_str,
         "category":"news",
-        "excludeDomains": ["x.com", "twitter.com"],
+        # "excludeDomains": ["x.com", "twitter.com"],
         "includeDomains": ["rediff.com", "moneycontrol.com", "reuters.com", "cnbc.com", "businesstoday.in",
                            "livemint.com", "economictimes.indiatimes.com", "financialexpress.com", "business-standard.com", "businesstoday.in"],
         "contents": {
