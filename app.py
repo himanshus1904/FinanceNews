@@ -1,4 +1,4 @@
-import os
+import os, re
 import requests
 import json
 from datetime import datetime, time
@@ -80,6 +80,8 @@ def fetch_news(start_published_date_str, end_published_date_str, number_of_artic
                 summary = ""
                 
             headline = headline.replace("Headline:", "").strip()
+            headline = re.sub(r'^\*+', '', headline)  # removes leading asterisks
+            headline = headline.strip()
             formatted_articles.append({
                 "headline": headline,
                 "news_content": summary,
