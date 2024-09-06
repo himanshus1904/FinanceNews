@@ -78,7 +78,8 @@ def fetch_news(start_published_date_str, end_published_date_str, number_of_artic
             else:
                 headline = response_text
                 summary = ""
-
+                
+            headline = headline.replace("Headline:", "").strip()
             formatted_articles.append({
                 "headline": headline,
                 "news_content": summary,
